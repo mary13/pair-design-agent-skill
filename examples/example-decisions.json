@@ -1,0 +1,238 @@
+{
+  "project": "Example Decisions - Tailor Onboarding Flow",
+  "description": "Sample decision records demonstrating proper structure and content for the Pair Design methodology. Use these as reference when documenting your own design decisions.",
+  "note": "These are real decisions from the Tailor Onboarding project, showing how to capture context, rationale, alternatives, and consequences.",
+  "decisions": [
+    {
+      "id": "DEC-001",
+      "date": "2026-04-22",
+      "title": "Add swatch delivery option",
+      "context": "Initial design had users choosing fabric directly from images. User suggested adding physical swatch samples to reduce uncertainty before $850 purchase commitment.",
+      "decision": "Add overnight swatch delivery option with multiple shipping tiers",
+      "rationale": "Some users want to see/feel fabric before committing to $850 purchase. Physical samples reduce uncertainty and returns. Provides option without forcing everyone through swatch flow.",
+      "alternatives": [
+        "Fabric images only - rejected because doesn't address tactile concerns",
+        "Free swatch program - rejected due to cost and potential abuse",
+        "Single shipping speed - rejected because users have different urgency levels"
+      ],
+      "consequences": "Created two-path flow structure. Added 4 screens to swatch path. Increased complexity but reduced purchase anxiety. Expected to reduce returns and increase confidence.",
+      "design_patterns": [
+        "progressive-disclosure",
+        "risk-reduction"
+      ],
+      "user_flows": [
+        "swatch-detour"
+      ],
+      "screens_affected": [
+        "index.html",
+        "path-1-step-2.html",
+        "path-1-step-3.html",
+        "path-1-step-3-payment.html",
+        "path-1-step-4.html"
+      ],
+      "tags": [
+        "user-request",
+        "trust-building",
+        "purchase-confidence"
+      ]
+    },
+    {
+      "id": "DEC-009",
+      "date": "2026-04-22",
+      "title": "Split payment from shipping screen",
+      "context": "Initially designed shipping and payment collection on a single screen. User provided feedback: 'I think we should have a separate screen for payment methods'",
+      "decision": "Create separate screen for payment methods instead of combining with shipping information",
+      "rationale": "Better focus on each task. Reduced cognitive load. Clearer action hierarchy. Shipping and payment are conceptually distinct - shipping is about 'where' and payment is about 'how.' Separating them respects this mental model and allows each to be completed with full attention.",
+      "alternatives": [
+        "Combined form with all fields on one screen - rejected due to information overload and mixed mental tasks",
+        "Accordion sections on one screen - rejected because still requires page scanning and doesn't truly separate tasks",
+        "Tabbed interface - rejected as tabs add UI complexity and aren't appropriate for linear flow"
+      ],
+      "consequences": "Added one screen to flow (may feel longer to some users). Improved expected completion rate. Clearer error handling. Better mobile experience. Each screen has single purpose. Requires additional routing logic.",
+      "design_patterns": [
+        "progressive-disclosure",
+        "single-purpose-screen",
+        "chunking"
+      ],
+      "user_flows": [
+        "swatch-detour"
+      ],
+      "screens_affected": [
+        "path-1-step-3.html",
+        "path-1-step-3-payment.html"
+      ],
+      "tags": [
+        "user-request",
+        "information-architecture",
+        "payment",
+        "form-design"
+      ],
+      "notes": "This decision came directly from user feedback during the design session. User's instinct about separating concerns was validated by UX best practices for checkout flows."
+    },
+    {
+      "id": "DEC-006",
+      "date": "2026-04-22",
+      "title": "Limit swatch selection to 5",
+      "context": "Needed to manage costs and prevent decision paralysis with too many swatches. Users could potentially select unlimited swatches without constraint.",
+      "decision": "Maximum 5 swatches per order with real-time counter and disabled checkboxes at limit",
+      "rationale": "Manages shipping costs (5 swatches can fit in single envelope). Prevents decision paralysis (too many choices leads to analysis paralysis). Creates helpful constraint that aids decision-making. 5 swatches allows comparison of different fabric types while remaining manageable.",
+      "alternatives": [
+        "Unlimited swatches - rejected due to shipping costs and decision paralysis risk",
+        "Tiered pricing by quantity - rejected as complexity doesn't justify benefit for this use case",
+        "3 swatch limit - rejected as too restrictive, doesn't allow comparison across all 5 fabric types",
+        "Soft limit with warning - rejected because users would ignore warnings and expect all swatches"
+      ],
+      "consequences": "Clear expectations set upfront. Encourages thoughtful selection rather than 'order everything'. May frustrate users wanting more options (acceptable trade-off). Reduces operational costs. JavaScript enforcement prevents accidental over-selection. Counter provides real-time feedback.",
+      "design_patterns": [
+        "constrained-choice",
+        "real-time-feedback"
+      ],
+      "user_flows": [
+        "swatch-detour"
+      ],
+      "screens_affected": [
+        "path-1-step-2.html"
+      ],
+      "tags": [
+        "business-constraint",
+        "ux-optimization",
+        "decision-support"
+      ],
+      "implementation_notes": "Used JavaScript to disable unchecked boxes when 5 are selected. Counter updates on each checkbox change. Provides immediate visual feedback about selection state."
+    },
+    {
+      "id": "DEC-011",
+      "date": "2026-04-22",
+      "title": "Button hierarchy on swatch confirmation",
+      "context": "Swatch order confirmation screen needed primary action. Initially had 'Continue to order now' as prominent button. User feedback: 'The Continue to Order Now button is too prominent'",
+      "decision": "Make 'Done' primary button, demote 'Continue to order now' to small link under 'Changed your mind?'",
+      "rationale": "Primary action should be completing current task (Done - she just paid for swatches). Continuing to full order is secondary, optional path. Hierarchy should reflect user intent priority. Most users will want to wait for swatches before ordering. Making 'continue' too prominent creates pressure to skip the swatches they just paid for.",
+      "alternatives": [
+        "Both as primary buttons - rejected because creates decision paralysis and unclear hierarchy",
+        "Continue as secondary button - rejected as still too prominent for optional action",
+        "Hide continue option entirely - rejected as some users may want to proceed immediately",
+        "Modal dialog for continue option - rejected as adds unnecessary complexity"
+      ],
+      "consequences": "Fewer users may continue to order immediately (acceptable - intentional friction). Those who do continue are more intentional about it. Clearer completion of swatch task. Reduces buyer's remorse about swatch purchase. Better respect for user's initial choice to order swatches.",
+      "design_patterns": [
+        "button-hierarchy",
+        "primary-secondary-actions",
+        "intentional-friction"
+      ],
+      "user_flows": [
+        "swatch-detour"
+      ],
+      "screens_affected": [
+        "path-1-step-4.html"
+      ],
+      "tags": [
+        "user-feedback",
+        "visual-hierarchy",
+        "conversion-optimization"
+      ],
+      "lessons_learned": "Button prominence should match intended user flow, not business preference. When user has just completed a purchase (swatches), respect that completion rather than pushing for more."
+    },
+    {
+      "id": "DEC-012",
+      "date": "2026-04-22",
+      "title": "Consistent navigation positioning",
+      "context": "Added 'Back to all scenarios' link to prototype screens. Initial placement was inconsistent - sometimes inside white box, sometimes outside, sometimes at top, sometimes at bottom. User: 'The back to all scenarios is showing up in different places on each prototype screen'",
+      "decision": "Position 'Back to all scenarios' link at bottom of page, outside white box, left-aligned to box edge on all 15 screens",
+      "rationale": "Consistency improves usability - users know where to find it. Bottom position doesn't compete with primary actions (which are always in the white box). Outside box shows it's meta-navigation, not part of the flow. Left-alignment matches reading direction and white box edge. Creates predictable muscle memory.",
+      "alternatives": [
+        "Top of page - rejected because competes with primary content and actions",
+        "Inside white box - rejected because meta-navigation should be visually separated from flow",
+        "Right-aligned - rejected because less discoverable and doesn't align with box edge",
+        "Hamburger menu - rejected as over-engineering for simple navigation link"
+      ],
+      "consequences": "Requires scrolling to access on long pages (acceptable for infrequent action). Clear visual hierarchy maintained. Consistent muscle memory. Easy to find when needed. Applied uniformly across all 15 screens. Minor technical effort to update all files but worth it for consistency.",
+      "design_patterns": [
+        "consistent-navigation",
+        "visual-hierarchy",
+        "meta-navigation"
+      ],
+      "user_flows": [
+        "swatch-detour",
+        "order-now"
+      ],
+      "screens_affected": [
+        "index.html",
+        "path-1-step-2.html",
+        "path-1-step-3.html",
+        "path-1-step-3-payment.html",
+        "path-1-step-4.html",
+        "path-1-return-step-1.html",
+        "path-1-return-step-2.html",
+        "path-1-return-step-3.html",
+        "path-1-return-step-4.html",
+        "path-1-return-step-5.html",
+        "path-2-step-1.html",
+        "path-2-step-2.html",
+        "path-2-step-3.html",
+        "path-2-step-4.html",
+        "path-2-step-5.html"
+      ],
+      "tags": [
+        "user-feedback",
+        "navigation",
+        "consistency",
+        "visual-hierarchy"
+      ],
+      "implementation_approach": "Categorized screens by layout type (standard, wide, flex). Applied systematic fix to each category. Verified consistency across all screens manually."
+    }
+  ],
+  "usage_guide": {
+    "how_to_use_these_examples": [
+      "Study the structure - see what sections are included",
+      "Notice the level of detail - specific but not verbose",
+      "Observe the rationale - explains WHY, not just WHAT",
+      "Review alternatives - shows deliberation happened",
+      "Check consequences - both positive and negative listed",
+      "See the tags - enable future querying and filtering"
+    ],
+    "when_documenting_your_own_decisions": [
+      "Copy decision-template.md as starting point",
+      "Fill in ALL sections, don't skip",
+      "Be specific about context - why was this needed?",
+      "List at least 2-3 alternatives considered",
+      "Include both pros and cons in consequences",
+      "Tag appropriately for future discovery",
+      "Write rationale for humans 6 months from now"
+    ],
+    "common_mistakes_to_avoid": [
+      "Vague context - 'We needed to improve the form' (improve how? why?)",
+      "Missing alternatives - suggests no deliberation happened",
+      "Only positive consequences - every decision has trade-offs",
+      "Poor tagging - makes future discovery impossible",
+      "Writing for yourself today, not future team"
+    ]
+  },
+  "querying_examples": {
+    "description": "If you structure your decisions as JSON, you can query them programmatically",
+    "examples": [
+      {
+        "question": "How many decisions used progressive-disclosure pattern?",
+        "command": "jq '[.decisions[] | select(.design_patterns[] == \"progressive-disclosure\")] | length' decisions.json",
+        "result": "3 decisions"
+      },
+      {
+        "question": "What decisions were based on user feedback?",
+        "command": "jq '.decisions[] | select(.tags[] == \"user-feedback\") | .title' decisions.json",
+        "result": "Lists: Button hierarchy, Consistent navigation"
+      },
+      {
+        "question": "Show all decisions affecting payment screens",
+        "command": "jq '.decisions[] | select(.screens_affected[] | contains(\"payment\"))' decisions.json",
+        "result": "Returns full decision records for payment-related decisions"
+      }
+    ]
+  },
+  "metadata": {
+    "version": "1.0",
+    "created": "2026-04-23",
+    "source_project": "Tailor Onboarding Flow",
+    "total_decisions_in_full_project": 15,
+    "decisions_shown_here": 5,
+    "purpose": "Educational example for Pair Design methodology"
+  }
+}
