@@ -1,0 +1,442 @@
+{
+  "skill": {
+    "id": "pair-design-agent-skill",
+    "name": "Pair Design Agent Skill",
+    "version": "1.0.0",
+    "description": "A structured methodology for human-AI collaborative design work using Pair Design principles",
+    "longDescription": "Comprehensive agent skill for collaborative design sessions based on Noessel & Anderson's Pair Design methodology. Enables structured, iterative design work with clear roles, agreements, and workflows. Prevents scope creep and ensures high-quality output through disciplined one-artifact-at-a-time approach.",
+    "type": "methodology",
+    "category": "design",
+    "tags": [
+      "pair-design",
+      "collaborative-design",
+      "ux-design",
+      "ui-design",
+      "methodology",
+      "user-experience",
+      "wireframing",
+      "prototyping",
+      "design-process",
+      "decision-documentation",
+      "human-ai-collaboration"
+    ],
+    "keywords": [
+      "pair design",
+      "collaborative design",
+      "design methodology",
+      "UX design",
+      "UI design",
+      "wireframes",
+      "prototypes",
+      "design decisions",
+      "progressive disclosure",
+      "user-centered design"
+    ]
+  },
+  "metadata": {
+    "created": "2026-04-23",
+    "lastUpdated": "2026-04-23",
+    "status": "stable",
+    "license": "MIT",
+    "homepage": "https://github.com/mary13/pair-design-agent-skill",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/mary13/pair-design-agent-skill.git"
+    },
+    "bugs": {
+      "url": "https://github.com/mary13/pair-design-agent-skill/issues"
+    }
+  },
+  "author": {
+    "name": "Kathleen Moynahan",
+    "role": "Design Researcher"
+  },
+  "contributors": [
+    {
+      "name": "Claude Sonnet 4.5",
+      "role": "AI Collaborator",
+      "organization": "Anthropic"
+    }
+  ],
+  "basedOn": {
+    "methodology": "Pair Design",
+    "authors": ["Chris Noessel", "Molly Anderson"],
+    "book": "Pair Design: A Practical Approach to Collaborative Design",
+    "adapted": "For human-AI collaborative design work"
+  },
+  "provenResults": {
+    "project": "Tailor Onboarding Flow (Scenario A)",
+    "date": "2026-04-22",
+    "outputs": {
+      "screens": 16,
+      "decisions": 15,
+      "userFlows": 2,
+      "scopeCreep": 0
+    },
+    "quality": "High design quality achieved through disciplined iteration"
+  },
+  "files": {
+    "core": [
+      {
+        "path": "pair-design-skill.md",
+        "description": "Complete methodology documentation",
+        "size": "11743 bytes",
+        "required": true
+      },
+      {
+        "path": "README.md",
+        "description": "Quick start guide and overview",
+        "size": "7425 bytes",
+        "required": true
+      }
+    ],
+    "tools": [
+      {
+        "path": "quick-reference.md",
+        "description": "One-page cheat sheet for sessions",
+        "type": "reference",
+        "printable": true
+      },
+      {
+        "path": "decision-template.md",
+        "description": "Template for documenting decisions",
+        "type": "template",
+        "copyable": true
+      },
+      {
+        "path": "session-checklist.md",
+        "description": "Pre/during/post session checklists",
+        "type": "checklist",
+        "printable": true
+      },
+      {
+        "path": "workflow-diagram.md",
+        "description": "Visual workflow representations",
+        "type": "diagram",
+        "format": "ASCII"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "skill.json",
+        "description": "Skill metadata and configuration",
+        "type": "config"
+      }
+    ]
+  },
+  "usage": {
+    "whenToUse": [
+      "Designing user flows",
+      "Creating wireframes and prototypes",
+      "Making complex design decisions",
+      "UX/UI design projects",
+      "Interaction design work",
+      "Service design",
+      "Information architecture"
+    ],
+    "whenNotToUse": [
+      "Simple bug fixes",
+      "Pure implementation tasks without design decisions",
+      "Quick one-off changes",
+      "Maintenance work"
+    ],
+    "idealFor": [
+      "First-time users designing complex flows",
+      "Teams wanting structured collaboration",
+      "Projects requiring decision documentation",
+      "Design work prone to scope creep",
+      "Collaborative human-AI design sessions"
+    ]
+  },
+  "roles": {
+    "gen": {
+      "name": "Generator",
+      "typically": "AI",
+      "responsibilities": [
+        "Propose options and alternatives",
+        "Generate artifacts one at a time",
+        "Explain design rationale",
+        "Present design choices",
+        "Ask before major decisions"
+      ],
+      "keyAgreement": "Never dump multiple screens at once"
+    },
+    "synth": {
+      "name": "Synthesizer",
+      "typically": "Human",
+      "responsibilities": [
+        "Frame the problem clearly",
+        "Evaluate presented options",
+        "Make final decisions",
+        "Provide specific feedback",
+        "Keep project on track"
+      ],
+      "keyAgreement": "Make decisions when options are presented"
+    }
+  },
+  "coreAgreements": {
+    "goldenRule": "Never dump multiple screens/artifacts at once",
+    "gen": [
+      "Work one step at a time",
+      "Show work as you go",
+      "Never dump multiple screens",
+      "Ask before major decisions",
+      "Swap roles when needed"
+    ],
+    "synth": [
+      "Frame the problem clearly",
+      "Give feedback on each step",
+      "Make decisions when options presented",
+      "Keep us on track"
+    ],
+    "shared": [
+      "Progressive disclosure",
+      "User-centered design",
+      "Iterate based on feedback",
+      "Document as we build"
+    ]
+  },
+  "redFlags": {
+    "description": "Stop immediately if these occur",
+    "flags": [
+      {
+        "flag": "Multiple screens dumped at once",
+        "severity": "critical",
+        "action": "Show only first screen, review one at a time"
+      },
+      {
+        "flag": "Major architectural change without discussion",
+        "severity": "critical",
+        "action": "Present options with trade-offs, get approval"
+      },
+      {
+        "flag": "Work proceeding without feedback",
+        "severity": "high",
+        "action": "Pause, present work, wait for direction"
+      },
+      {
+        "flag": "Requirements assumed instead of confirmed",
+        "severity": "high",
+        "action": "Ask clarifying questions first"
+      },
+      {
+        "flag": "Scope creeping beyond agreed focus",
+        "severity": "medium",
+        "action": "Note for later, stay focused on current step"
+      }
+    ]
+  },
+  "workflow": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Frame",
+        "lead": "Synth",
+        "description": "Define the design problem and context"
+      },
+      {
+        "phase": 2,
+        "name": "Generate",
+        "lead": "Gen",
+        "description": "Create single artifact with rationale"
+      },
+      {
+        "phase": 3,
+        "name": "Review",
+        "lead": "Synth",
+        "description": "Provide specific feedback"
+      },
+      {
+        "phase": 4,
+        "name": "Iterate",
+        "lead": "Collaborative",
+        "description": "Refine based on feedback"
+      },
+      {
+        "phase": 5,
+        "name": "Document",
+        "lead": "Gen",
+        "description": "Capture decisions and rationale"
+      },
+      {
+        "phase": 6,
+        "name": "Next",
+        "lead": "Collaborative",
+        "description": "Move to next artifact"
+      }
+    ],
+    "loopCondition": "Repeat until objective met"
+  },
+  "outputArtifacts": {
+    "design": [
+      "Wireframes (one at a time)",
+      "User flows (step by step)",
+      "Prototypes (incremental)",
+      "Component designs (reusable)",
+      "Navigation patterns",
+      "Content structures"
+    ],
+    "documentation": [
+      "Design decisions database",
+      "Rationale for choices",
+      "Alternatives considered",
+      "Pattern library",
+      "Session logs",
+      "Retrospectives"
+    ]
+  },
+  "successMetrics": {
+    "process": [
+      "One artifact per iteration",
+      "Every artifact reviewed before proceeding",
+      "Decisions made promptly",
+      "Documentation complete and current",
+      "Agreements followed consistently"
+    ],
+    "output": [
+      "Artifacts serve intended purpose",
+      "User needs addressed",
+      "Design patterns consistent",
+      "Rationale documented",
+      "Trade-offs understood"
+    ],
+    "collaboration": [
+      "Roles clear and respected",
+      "Feedback specific and actionable",
+      "Both parties engaged",
+      "Work feels collaborative",
+      "Steady progress maintained"
+    ]
+  },
+  "dependencies": {
+    "required": [],
+    "optional": [
+      {
+        "name": "jq",
+        "description": "For querying decisions.json files",
+        "purpose": "Decision database queries"
+      },
+      {
+        "name": "git",
+        "description": "Version control for tracking changes",
+        "purpose": "Change tracking and collaboration"
+      }
+    ],
+    "tooling": [
+      {
+        "name": "Text editor or markdown viewer",
+        "purpose": "Reading documentation and templates"
+      },
+      {
+        "name": "Git/GitHub",
+        "purpose": "Version control and sharing"
+      }
+    ]
+  },
+  "compatibility": {
+    "designDomains": [
+      "Web design",
+      "Mobile app design",
+      "Service design",
+      "Content design",
+      "Information architecture",
+      "Interaction design",
+      "Product design"
+    ],
+    "teamStructures": [
+      "Solo designer (switching between roles)",
+      "Designer + AI collaboration",
+      "Multiple humans + AI",
+      "Client + designer collaboration"
+    ],
+    "projectSizes": [
+      "Small (single feature)",
+      "Medium (complete flow)",
+      "Large (entire application)"
+    ]
+  },
+  "integration": {
+    "worksWellWith": [
+      "Decision databases (decisions.json)",
+      "Design systems",
+      "Prototyping tools",
+      "User research methodologies",
+      "Agile/Scrum processes"
+    ],
+    "exportFormats": [
+      "Markdown documentation",
+      "JSON decision records",
+      "HTML prototypes",
+      "Session logs"
+    ]
+  },
+  "learning": {
+    "readingOrder": [
+      "1. README.md - Quick start",
+      "2. quick-reference.md - Essential rules",
+      "3. workflow-diagram.md - Visual overview",
+      "4. pair-design-skill.md - Complete methodology",
+      "5. session-checklist.md - Session structure",
+      "6. decision-template.md - Documentation format"
+    ],
+    "timeToLearn": {
+      "quickStart": "15 minutes",
+      "basicProficiency": "1-2 sessions",
+      "advancedMastery": "5-10 sessions"
+    },
+    "commonPitfalls": [
+      "Creating multiple screens at once (most common)",
+      "Vague feedback instead of specific direction",
+      "Deferring decisions indefinitely",
+      "Skipping documentation during work",
+      "Scope creep without catching it"
+    ]
+  },
+  "extensibility": {
+    "customizable": [
+      "Artifact types (add domain-specific items)",
+      "Decision tags (add project-specific categories)",
+      "Checklist items (add team-specific checks)",
+      "Red flags (add context-specific warnings)"
+    ],
+    "adaptable": [
+      "Different design domains",
+      "Various team sizes",
+      "Remote or co-located work",
+      "Synchronous or asynchronous collaboration"
+    ]
+  },
+  "support": {
+    "documentation": "https://github.com/mary13/pair-design-agent-skill",
+    "issues": "https://github.com/mary13/pair-design-agent-skill/issues",
+    "examples": "See Tailor Onboarding project for reference implementation"
+  },
+  "versionHistory": [
+    {
+      "version": "1.0.0",
+      "date": "2026-04-23",
+      "changes": [
+        "Initial release",
+        "Core methodology documentation",
+        "Essential tools (quick reference, templates, checklist)",
+        "Workflow diagrams",
+        "Metadata and configuration"
+      ],
+      "basedOn": "Tailor Onboarding project (Scenario A)"
+    }
+  ],
+  "futureEnhancements": [
+    "Example sessions with annotations",
+    "Additional templates (wireframe, user flow, retrospective)",
+    "Troubleshooting flowchart",
+    "Video walkthrough",
+    "Integration guides for popular tools"
+  ],
+  "stats": {
+    "totalFiles": 7,
+    "totalLines": 2019,
+    "documentation": "Comprehensive",
+    "examples": "Reference project available",
+    "maturity": "Stable (proven in production)"
+  }
+}
