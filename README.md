@@ -49,11 +49,15 @@ The **Pair Design Skill** is a structured methodology for human-AI collaborative
 **Core Documentation:**
 - `pair-design-skill.md` - Complete methodology documentation
 - `README.md` - This file (quick start guide)
+- `workflow-diagram.md` - Visual workflow representations ✓
 
 **Essential Tools:**
 - `quick-reference.md` - One-page cheat sheet ✓
 - `decision-template.md` - Template for documenting decisions ✓
 - `session-checklist.md` - Pre/during/post session checklists ✓
+
+**Metadata & Configuration:**
+- `skill.json` - Skill metadata and formal packaging ✓
 
 **Coming Soon:**
 - `examples/` - Example sessions
