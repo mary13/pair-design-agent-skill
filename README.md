@@ -59,9 +59,13 @@ The **Pair Design Skill** is a structured methodology for human-AI collaborative
 **Metadata & Configuration:**
 - `skill.json` - Skill metadata and formal packaging ✓
 
+**Examples:**
+- `examples/example-session.md` - Annotated session transcript ✓
+- `examples/example-decisions.json` - Sample decision database ✓
+- `examples/example-wireframe-annotations.md` - Design documentation ✓
+
 **Coming Soon:**
-- `examples/` - Example sessions
-- `templates/` - Additional templates
+- `templates/` - Additional templates (wireframe, user flow, retrospective)
 
 ## Core Principles
 
