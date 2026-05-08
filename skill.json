@@ -1,8 +1,9 @@
 {
   "skill": {
-    "id": "pair-design-agent-skill",
+    "id": "pair-design",
     "name": "Pair Design Agent Skill",
-    "version": "1.0.0",
+    "version": "1.1.0",
+    "entryPoint": "SKILL.md",
     "description": "A structured methodology for human-AI collaborative design work using Pair Design principles",
     "longDescription": "Comprehensive agent skill for collaborative design sessions based on Noessel & Anderson's Pair Design methodology. Enables structured, iterative design work with clear roles, agreements, and workflows. Prevents scope creep and ensures high-quality output through disciplined one-artifact-at-a-time approach.",
     "type": "methodology",
@@ -35,7 +36,7 @@
   },
   "metadata": {
     "created": "2026-04-23",
-    "lastUpdated": "2026-04-23",
+    "lastUpdated": "2026-05-07",
     "status": "stable",
     "license": "MIT",
     "homepage": "https://github.com/mary13/pair-design-agent-skill",
@@ -78,15 +79,18 @@
   "files": {
     "core": [
       {
+        "path": "SKILL.md",
+        "description": "Agent entry point with YAML frontmatter (auto-loadable)",
+        "required": true
+      },
+      {
         "path": "pair-design-skill.md",
-        "description": "Complete methodology documentation",
-        "size": "11743 bytes",
+        "description": "Complete long-form methodology documentation",
         "required": true
       },
       {
         "path": "README.md",
-        "description": "Quick start guide and overview",
-        "size": "7425 bytes",
+        "description": "Quick start guide and overview for humans",
         "required": true
       }
     ],
@@ -99,7 +103,13 @@
       },
       {
         "path": "decision-template.md",
-        "description": "Template for documenting decisions",
+        "description": "Heavy template for architectural decisions",
+        "type": "template",
+        "copyable": true
+      },
+      {
+        "path": "decision-template-lite.md",
+        "description": "Lightweight template for tactical decisions (~30s to fill)",
         "type": "template",
         "copyable": true
       },
@@ -114,6 +124,12 @@
         "description": "Visual workflow representations",
         "type": "diagram",
         "format": "ASCII"
+      },
+      {
+        "path": "troubleshooting-flowchart.md",
+        "description": "Recovery procedures for common failure modes",
+        "type": "diagram",
+        "format": "ASCII"
       }
     ],
     "metadata": [
@@ -121,6 +137,23 @@
         "path": "skill.json",
         "description": "Skill metadata and configuration",
         "type": "config"
+      }
+    ],
+    "examples": [
+      {
+        "path": "examples/example-session.md",
+        "description": "Annotated session transcript from Tailor Onboarding project",
+        "type": "example"
+      },
+      {
+        "path": "examples/example-decisions.json",
+        "description": "Sample decision database with 5 decision records",
+        "type": "example"
+      },
+      {
+        "path": "examples/example-wireframe-annotations.md",
+        "description": "Annotated wireframe documentation example",
+        "type": "example"
       }
     ]
   },
@@ -372,12 +405,14 @@
   },
   "learning": {
     "readingOrder": [
-      "1. README.md - Quick start",
-      "2. quick-reference.md - Essential rules",
-      "3. workflow-diagram.md - Visual overview",
-      "4. pair-design-skill.md - Complete methodology",
-      "5. session-checklist.md - Session structure",
-      "6. decision-template.md - Documentation format"
+      "1. SKILL.md - Agent entry point and core rules",
+      "2. README.md - Quick start for humans",
+      "3. quick-reference.md - Essential rules",
+      "4. workflow-diagram.md - Visual overview",
+      "5. pair-design-skill.md - Complete methodology",
+      "6. session-checklist.md - Session structure",
+      "7. decision-template-lite.md / decision-template.md - Documentation formats",
+      "8. troubleshooting-flowchart.md - When sessions go off-track"
     ],
     "timeToLearn": {
       "quickStart": "15 minutes",
@@ -413,6 +448,19 @@
   },
   "versionHistory": [
     {
+      "version": "1.1.0",
+      "date": "2026-05-07",
+      "changes": [
+        "Added SKILL.md with YAML frontmatter as agent-loadable entry point",
+        "Added decision-template-lite.md for tactical decisions",
+        "Added troubleshooting-flowchart.md with recovery procedures for 7 failure modes",
+        "Reconciled file inventory with actual contents (examples/ now listed)",
+        "Removed broken parent-folder references (../decisions.json, ../session-log.md)",
+        "Updated reading order to include new files"
+      ],
+      "basedOn": "v1.0 review feedback"
+    },
+    {
       "version": "1.0.0",
       "date": "2026-04-23",
       "changes": [
@@ -426,17 +474,16 @@
     }
   ],
   "futureEnhancements": [
-    "Example sessions with annotations",
     "Additional templates (wireframe, user flow, retrospective)",
-    "Troubleshooting flowchart",
+    "Annotated wireframe examples with screenshots (vs ASCII)",
     "Video walkthrough",
-    "Integration guides for popular tools"
+    "Integration guides for popular tools",
+    "Lightweight decisions.json schema for mixed lite/heavy records"
   ],
   "stats": {
-    "totalFiles": 7,
-    "totalLines": 2019,
+    "totalFiles": 13,
     "documentation": "Comprehensive",
-    "examples": "Reference project available",
+    "examples": "3 annotated examples included",
     "maturity": "Stable (proven in production)"
   }
 }

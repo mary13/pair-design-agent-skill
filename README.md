@@ -47,14 +47,17 @@ The **Pair Design Skill** is a structured methodology for human-AI collaborative
 ## Files in This Folder
 
 **Core Documentation:**
-- `pair-design-skill.md` - Complete methodology documentation
-- `README.md` - This file (quick start guide)
+- `SKILL.md` - Agent entry point with frontmatter (auto-loadable) ✓
+- `pair-design-skill.md` - Complete long-form methodology documentation
+- `README.md` - This file (quick start guide for humans)
 - `workflow-diagram.md` - Visual workflow representations ✓
 
 **Essential Tools:**
 - `quick-reference.md` - One-page cheat sheet ✓
-- `decision-template.md` - Template for documenting decisions ✓
+- `decision-template.md` - Heavy template for architectural decisions ✓
+- `decision-template-lite.md` - Lightweight template for tactical decisions ✓
 - `session-checklist.md` - Pre/during/post session checklists ✓
+- `troubleshooting-flowchart.md` - Recovery procedures for common failure modes ✓
 
 **Metadata & Configuration:**
 - `skill.json` - Skill metadata and formal packaging ✓
@@ -63,9 +66,6 @@ The **Pair Design Skill** is a structured methodology for human-AI collaborative
 - `examples/example-session.md` - Annotated session transcript ✓
 - `examples/example-decisions.json` - Sample decision database ✓
 - `examples/example-wireframe-annotations.md` - Design documentation ✓
-
-**Coming Soon:**
-- `templates/` - Additional templates (wireframe, user flow, retrospective)
 
 ## Core Principles
 
@@ -203,7 +203,7 @@ This skill naturally produces decision documentation.
 **Optional: Create a decisions.json** for queryable records:
 - Structured JSON format
 - Enables programmatic queries
-- See Tailor project's `decisions.json` and `query-decisions.sh` for examples
+- See `examples/example-decisions.json` for format and query examples
 
 ## Common Questions
 
@@ -260,9 +260,9 @@ A: That's expected! Iteration is built in. Just be clear about what needs changi
 ## Resources
 
 - **Source methodology:** Pair Design by Noessel & Anderson
-- **Original project:** Tailor Onboarding Flow (parent folder)
-- **Decision database:** `../decisions.json`
-- **Session log:** `../session-log.md`
+- **Reference implementation:** Tailor Onboarding Flow project (proven on 16 screens, 15 decisions, zero scope creep)
+- **Sample decision database:** `examples/example-decisions.json`
+- **Sample session transcript:** `examples/example-session.md`
 
 ## Contributing Improvements
 
@@ -280,6 +280,6 @@ Based on successful application in Tailor Onboarding project (Scenario A).
 
 ---
 
-**Ready to start?** Open `pair-design-skill.md` for complete methodology, or just jump in with:
+**Ready to start?** `SKILL.md` is the agent-loadable entry point with the core rules. `pair-design-skill.md` has the complete long-form methodology. Or just jump in with:
 
 *"Let's use Pair Design methodology - I'll be synth, you be gen. Here's what I need to design..."*
