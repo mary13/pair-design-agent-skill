@@ -2,7 +2,7 @@
   "skill": {
     "id": "pair-design",
     "name": "Pair Design Agent Skill",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "entryPoint": "SKILL.md",
     "description": "A structured methodology for human-AI collaborative design work using Pair Design principles",
     "longDescription": "Comprehensive agent skill for collaborative design sessions based on Noessel & Anderson's Pair Design methodology. Enables structured, iterative design work with clear roles, agreements, and workflows. Prevents scope creep and ensures high-quality output through disciplined one-artifact-at-a-time approach.",
@@ -36,7 +36,7 @@
   },
   "metadata": {
     "created": "2026-04-23",
-    "lastUpdated": "2026-05-07",
+    "lastUpdated": "2026-05-15",
     "status": "stable",
     "license": "MIT",
     "homepage": "https://github.com/mary13/pair-design-agent-skill",
@@ -130,6 +130,11 @@
         "description": "Recovery procedures for common failure modes",
         "type": "diagram",
         "format": "ASCII"
+      },
+      {
+        "path": "token-usage-monitor.md",
+        "description": "Token-conscious pair design: budget bands, healthy synth/gen splits, per-artifact diagnostics, cost estimates",
+        "type": "guidance"
       }
     ],
     "metadata": [
@@ -412,7 +417,8 @@
       "5. pair-design-skill.md - Complete methodology",
       "6. session-checklist.md - Session structure",
       "7. decision-template-lite.md / decision-template.md - Documentation formats",
-      "8. troubleshooting-flowchart.md - When sessions go off-track"
+      "8. troubleshooting-flowchart.md - When sessions go off-track",
+      "9. token-usage-monitor.md - Token discipline and cost awareness"
     ],
     "timeToLearn": {
       "quickStart": "15 minutes",
@@ -448,6 +454,15 @@
   },
   "versionHistory": [
     {
+      "version": "1.2.0",
+      "date": "2026-05-15",
+      "changes": [
+        "Added token-usage-monitor.md: token-conscious pair design guidance covering session totals, per-artifact breakdown, synth/gen split, and cost estimation",
+        "Linked token monitor into SKILL.md, README.md, and reading order"
+      ],
+      "basedOn": "v1.1 + token awareness extension"
+    },
+    {
       "version": "1.1.0",
       "date": "2026-05-07",
       "changes": [
@@ -481,7 +496,7 @@
     "Lightweight decisions.json schema for mixed lite/heavy records"
   ],
   "stats": {
-    "totalFiles": 13,
+    "totalFiles": 14,
     "documentation": "Comprehensive",
     "examples": "3 annotated examples included",
     "maturity": "Stable (proven in production)"

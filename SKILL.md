@@ -86,6 +86,7 @@ If you find yourself debating which to use, default to the lite template.
 - `workflow-diagram.md` — ASCII workflow visuals
 - `session-checklist.md` — Pre/during/post session checks
 - `troubleshooting-flowchart.md` — Recovery procedures when sessions go off-track
+- `token-usage-monitor.md` — Token-conscious session guidance: budget bands, healthy splits, cost diagnostics
 
 **Templates**
 

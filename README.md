@@ -58,6 +58,7 @@ The **Pair Design Skill** is a structured methodology for human-AI collaborative
 - `decision-template-lite.md` - Lightweight template for tactical decisions ✓
 - `session-checklist.md` - Pre/during/post session checklists ✓
 - `troubleshooting-flowchart.md` - Recovery procedures for common failure modes ✓
+- `token-usage-monitor.md` - Token-conscious session guidance and budget bands ✓
 
 **Metadata & Configuration:**
 - `skill.json` - Skill metadata and formal packaging ✓
